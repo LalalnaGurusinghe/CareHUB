@@ -14,7 +14,7 @@
 ## 📌 Overview
 **CareHub** is a **microservice-based healthcare management system** that manages **patients, appointments, and medical records**.  
 It follows a **distributed architecture** built with **Spring Boot**, leverages **RabbitMQ** for messaging, and uses **Keycloak** for centralized authentication and authorization.  
-The system is containerized with **Docker** and designed for **cloud-ready deployments** on **AWS**.
+The system is fully containerized with **Docker** and designed for **cloud-ready deployments** on **AWS**.
 
 ---
 
@@ -32,6 +32,9 @@ The system is containerized with **Docker** and designed for **cloud-ready deplo
 
 ## 🏗️ System Architecture
 
+*(Add your diagram under `/assets/carehub-architecture.png`)*
+
+![CareHub Architecture](./assets/carehub-architecture.png)
 
 ### 🔹 Microservices
 - **Patient Service** → Manage patient profiles and medical history  
@@ -65,37 +68,13 @@ The system is containerized with **Docker** and designed for **cloud-ready deplo
 - [PostgreSQL](https://www.postgresql.org/)  
 - [MongoDB](https://www.mongodb.com/)  
 
+---
+
 ### ⚡ Steps
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/carehub.git
-   cd carehub
 
-2. Start infrastructure services (RabbitMQ, Keycloak, Databases) using Docker
+#### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/carehub.git
+cd carehub
 
-   docker-compose up -d
-
-
-3 .Build and run each microservice
-
-   mvn clean install
-   mvn spring-boot:run
-
-
-4. Access the system
-
-  API Gateway → http://localhost:8080/
-
-  Keycloak Admin Console → http://localhost:8081/
-
-  RabbitMQ Dashboard → http://localhost:15672/
-
-📈 Future Improvements
-
-Add Kubernetes for orchestration and scaling
-
-Implement CI/CD pipelines with GitHub Actions
-
-Introduce GraphQL API support
-
-Enhance monitoring with Prometheus + Grafana
+#### 2. Start infrastructure services (RabbitMQ, Keycloak, Databases) with Docker
