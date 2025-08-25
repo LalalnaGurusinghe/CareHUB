@@ -76,5 +76,3 @@ The system is fully containerized with **Docker** and designed for **cloud-ready
 ```bash
 git clone https://github.com/your-username/carehub.git
 cd carehub
-
-#### 2. Start infrastructure services (RabbitMQ, Keycloak, Databases) with Docker
