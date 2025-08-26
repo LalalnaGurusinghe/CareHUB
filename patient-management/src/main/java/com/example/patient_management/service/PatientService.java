@@ -46,16 +46,16 @@ public class PatientService {
         if(patientRequestDTO.getName() != null){
             patient.setName(patientRequestDTO.getName());
         }
-        else if(patientRequestDTO.getEmail() != null){
+        if(patientRequestDTO.getEmail() != null){
             if (patientRepo.existsByEmail(patientRequestDTO.getEmail())) {
                 throw new EmailAlreadyExistsException("Email already exists: " + patientRequestDTO.getEmail());
             }
             patient.setEmail(patientRequestDTO.getEmail());
         }
-        else if(patientRequestDTO.getAddress() != null){
+        if(patientRequestDTO.getAddress() != null){
             patient.setAddress(patientRequestDTO.getAddress());
         }
-        else if(patientRequestDTO.getDateOfBirth() != null){
+        if(patientRequestDTO.getDateOfBirth() != null){
             patient.setDateOfBirth(LocalDate.parse(patientRequestDTO.getDateOfBirth()));
         }
 
