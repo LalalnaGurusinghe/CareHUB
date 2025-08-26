@@ -19,7 +19,7 @@ public class PatientService {
         this.patientRepo = patientRepo;
     }
 
-    public List<PatientResponseDTO> getAllPatients(){
+    public List<PatientResponseDTO> getAllPatients() {
         List<Patient> patients = patientRepo.findAll();
 
         List<PatientResponseDTO> patientResponseDTOS = patients.stream()
@@ -27,7 +27,12 @@ public class PatientService {
         return patientResponseDTOS;
     }
 
-    public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO){
+    public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO) {
+        if (patientRepo.existsByEmail(patientRequestDTO.getEmail())) {
+            throw new EmailAlreadyExistsException("Email already exists: " + patientRequestDTO.getEmail());
+        }
+
+
         Patient patient = patientRepo.save(PatientMapper.toModel(patientRequestDTO));
         return PatientMapper.toDTO(patient);
     }
