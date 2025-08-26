@@ -2,6 +2,7 @@ package com.example.patient_management.service;
 
 import com.example.patient_management.dto.PatientRequestDTO;
 import com.example.patient_management.dto.PatientResponseDTO;
+import com.example.patient_management.exception.EmailAlreadyExistsException;
 import com.example.patient_management.mapper.PatientMapper;
 import com.example.patient_management.model.Patient;
 import com.example.patient_management.repo.PatientRepo;
