@@ -1,0 +1,24 @@
+FROM maven:3.9.9-eclipse-temurin-17 AS builder
+
+WORKDIR /app
+
+# copy patient-service module pom
+COPY pom.xml .
+
+RUN mvn dependency:go-offline -B
+
+# copy patient-service source
+COPY src ./src
+
+# build only patient-service
+RUN mvn clean package -DskipTests
+
+FROM openjdk:17-jdk AS runner
+
+WORKDIR /app
+
+COPY --from=builder /app/target/patient-service-0.0.1-SNAPSHOT.jar app.jar
+
+EXPOSE 4000
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
